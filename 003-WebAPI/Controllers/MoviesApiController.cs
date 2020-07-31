@@ -142,12 +142,7 @@ namespace ImdbServerCore
 			{
 				var userID = User.Identity.Name;
 				int i = moviesExtendRepository.DeleteMovie(id, userID);
-				if (i > 0)
-				{
-					return NoContent();
-				}
-				return StatusCode(StatusCodes.Status500InternalServerError);
-
+				return NoContent();
 			}
 			catch (Exception ex)
 			{

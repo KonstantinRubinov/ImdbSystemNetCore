@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28010.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "003-WebAPI", "003-WebAPI\003-WebAPI.csproj", "{E35FBBAD-D7AA-4786-AAA3-4F75259353FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "001-DataAccessLayer", "001-DataAccessLayer\001-DataAccessLayer.csproj", "{22F739A6-DED5-4982-80B8-1C7D2A3A1F7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "001-DataAccessLayer", "001-DataAccessLayer\001-DataAccessLayer.csproj", "{22F739A6-DED5-4982-80B8-1C7D2A3A1F7A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "002-BusinessLogicLayer", "002-BusinessLogicLayer\002-BusinessLogicLayer.csproj", "{CC63BA17-5AF7-45CD-8B46-58BF933936EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "002-BusinessLogicLayer", "002-BusinessLogicLayer\002-BusinessLogicLayer.csproj", "{CC63BA17-5AF7-45CD-8B46-58BF933936EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
