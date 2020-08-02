@@ -49,7 +49,7 @@ export class UserService {
     return this.http.post<LoginUser>(baseUrl + 'token', loginUser);
   }
 
-  public signUp(userModel:User): Observable<User> {
+  public signUp(userModel:User): Observable<any> {
     return this.http.post<User>(usersUrl, userModel);
   }
 

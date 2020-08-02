@@ -44,6 +44,7 @@ export class SignInComponent implements OnInit, OnDestroy {
       this.userService.login(this.login) 
       .subscribe(res => {
         if (res.status === 200) {
+          //alert(res.body.access_token);
           sessionStorage.setItem('access_token', res.body.access_token);
           let loginUser:LoginUser = new LoginUser(
             res.body.userNickName,
@@ -78,6 +79,7 @@ export class SignInComponent implements OnInit, OnDestroy {
       const observable = this.userService.loginCore(this.login)
       observable.subscribe(res => {
         this.logger.debug("LoggedUser: ", res);
+        //alert(res.usertoken);
         sessionStorage.setItem('access_token', res.usertoken);
         let loginUser:LoginUser = new LoginUser(
           res.userNickName,

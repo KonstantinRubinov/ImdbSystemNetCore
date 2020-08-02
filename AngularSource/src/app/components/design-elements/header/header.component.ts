@@ -22,6 +22,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   public isLoggedIn:boolean;
   public myLevel=0;
   public mUrl=baseUrl;
+  public nodejs = ''
 
   @ViewChild('signUpModal') private signUpModal: ElementRef;
   @ViewChild('signInModal') private signInModal: ElementRef;

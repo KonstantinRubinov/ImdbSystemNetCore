@@ -94,6 +94,9 @@ export class SignUpComponent implements OnInit {
             this.userImdbPass
          );
          this.userService.signUp(user).subscribe(user=>{
+               if(user.hasOwnProperty('result')){
+                  user=user.result;
+               }
                this.logger.debug("signUp: ", user);
                let loginUser:LoginUser = new LoginUser();
                loginUser.userNickName= user.userNickName;

@@ -42,6 +42,9 @@ export class Reducer{
                 break;
                 
             case ActionType.GetImdbMovies:
+                if(action.payload.hasOwnProperty('Search')){
+                    action.payload=action.payload.Search;
+                }
                 newStore.imdbMovies=action.payload.map(x => new Movie(x.imdbID, x.title, x.plot, x.website, x.rated, x.seen, x.poster, x.userID, x.year));
                 break;
             case ActionType.GetImdbMoviesError:
@@ -63,13 +66,20 @@ export class Reducer{
                 break;
                 
             case ActionType.GetFavoriteMovies:
+                if(action.payload.hasOwnProperty('result')){
+                    action.payload=action.payload.result;
+                }
                 newStore.favoriteMovies=action.payload.map(x => new Movie(x.imdbID, x.title, x.plot, x.website, x.rated, x.seen, x.poster, x.userID, x.year));
                 break;
             case ActionType.GetFavoriteMoviesError:
                 newStore.favoriteMoviesError=action.payload;
                 break;
             case ActionType.GetFavoriteMovie:
-                newStore.movie=new Movie(action.payload.imdbID, action.payload.title, action.payload.plot, action.payload.website, action.payload.rated, action.payload.seen, action.payload.poster, action.payload.userID, action.payload.year);
+                let mm = action.payload;
+                if(mm.hasOwnProperty('result')){
+                    mm=mm.result;
+                }
+                newStore.movie=new Movie(mm.imdbID, mm.title, mm.plot, mm.website, mm.rated, mm.seen, mm.poster, mm.userID, mm.year);
                 break;
             case ActionType.GetFavoriteMovieError:
                 newStore.movieError=action.payload;
@@ -92,7 +102,11 @@ export class Reducer{
                 newStore.deletefavoriteMoviesError=action.payload;
                 break;
             case ActionType.AddMovieToFavorite:
-                let addMovieToFavorite = new Movie(action.payload.imdbID, action.payload.title, action.payload.plot, action.payload.website, action.payload.rated, action.payload.seen, action.payload.poster, action.payload.userID, action.payload.year);
+                let mm2 = action.payload;
+                if(mm2.hasOwnProperty('result')){
+                    mm2=mm2.result;
+                }
+                let addMovieToFavorite = new Movie(mm2.imdbID, mm2.title, mm2.plot, mm2.website, mm2.rated, mm2.seen, mm2.poster, mm2.userID, mm2.year);
                 newStore.favoriteMovies.push(addMovieToFavorite);
                 break;
             case ActionType.AddMovieToFavoriteError:
