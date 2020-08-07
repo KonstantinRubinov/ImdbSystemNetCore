@@ -9,7 +9,6 @@ import { User } from '../../models/User';
 import { baseUrl } from 'src/environments/environment';
 import { usersUrl } from 'src/environments/environment';
 import { CookieService } from 'ngx-cookie-service';
-import { Router } from '@angular/router';
 import { LogService } from '.././log.service';
 import { Observable } from 'rxjs';
 
@@ -20,7 +19,6 @@ export class UserService {
 
   public constructor(private http: HttpClient,
                      private redux: NgRedux<Store>,
-                     private router: Router,
                      private logger: LogService,
                      private cookieService: CookieService) { 
     this._sessionId = cookieService.get("sessionId");
@@ -52,35 +50,6 @@ export class UserService {
   public signUp(userModel:User): Observable<any> {
     return this.http.post<User>(usersUrl, userModel);
   }
-
-  // public signUp(userModel:User): any {
-  //   let observable = this.http.post<User>(usersUrl, userModel);
-  //   observable.subscribe(user=>{
-  //     this.logger.debug("signUp: ", user);
-  //     const body = new HttpParams()          
-  //     .set('grant_type', 'password')          
-  //     .set('username', user.userNickName)    
-  //     .set('password', user.userPassword)  
-  //     return this.http.post(baseUrl + '/token', body.toString(), {observe: 'response',    
-  //       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },    
-  //     });
-  //   }, error => {
-  //     return error.message;
-  //   });
-  // }
-
-  // public signUpCore(userModel:User): any {
-  //   let observable = this.http.post<User>(usersUrl, userModel);
-  //   observable.subscribe(user=>{
-  //     this.logger.debug("signUp: ", user);
-  //     let loginUser:LoginUser;
-  //     loginUser.userNickName= user.userNickName;
-  //     loginUser.userPassword= user.userPassword;
-  //     return this.http.post<LoginUser>(baseUrl + '/token', loginUser);
-  //   }, error => {
-  //     return error.message;
-  //   });
-  // }
   
   public updateUser(user:User): void {
     let he = new HttpHeaders({'Content-Type':  'application/json','Authorization': 'Bearer ' + sessionStorage.getItem('access_token') });

@@ -7,7 +7,6 @@ using System.Data.SqlClient;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using System.Text.RegularExpressions;
 
 namespace ImdbServerCore
 {
@@ -54,9 +53,6 @@ namespace ImdbServerCore
 			userModel.userPicture = user.userPicture;
 			return userModel;
 		}
-
-
-
 
 		public List<UserModel> GetAllUsers()
 		{

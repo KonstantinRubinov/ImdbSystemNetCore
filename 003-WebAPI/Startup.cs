@@ -105,10 +105,6 @@ namespace ImdbServerCore
 			app.UseAuthentication();
 			app.UseAuthorization();
 
-			//app.UseAuthorization();
-			//app.UseRouting();
-			
-
 			if (env.IsDevelopment())
 			{
 				app.UseDeveloperExceptionPage();
@@ -123,9 +119,8 @@ namespace ImdbServerCore
 			app.UseDefaultFiles(new DefaultFilesOptions { DefaultFileNames = new List<string> { "index.html" } });
 			app.UseStaticFiles();
 
-			
-
-			
+			//Add our new middleware to the pipeline
+			app.UseRequestResponseLogging();
 
 			app.UseEndpoints(endpoints =>
 			{
