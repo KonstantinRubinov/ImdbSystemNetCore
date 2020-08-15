@@ -3,7 +3,7 @@ Connected to imdb library, and sql database to save your favorite movies.
 
 * .NET Core 3 server
 * MsSql/MySql/MongoDb database
-* Angular 9 front.
+* Angular 9 front - with lazy load.
 * Inter-server communication (this server communiacts with imdb api).
 * Token bearer authentication.
 

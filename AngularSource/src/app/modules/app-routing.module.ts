@@ -1,19 +1,20 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ImdbComponent } from '../components/data-elements/Imdb/imdb.component';
-import { FavoritesComponent } from '../components/data-elements/favorites/favorites.component';
 import { LoginGuardService } from '../services/login-guard.service';
-import { MovieDetailsComponent } from '../components/data-elements/movie-details/movie-details.component';
+import { CommonModule } from '@angular/common';
 
 const routes: Routes = [
-  { path: "imdb", component: ImdbComponent },
-  { path: "favorites",canActivate: [LoginGuardService], component: FavoritesComponent },
-  { path: "movieDetails/:id", canActivate: [LoginGuardService], component: MovieDetailsComponent },
+  { path: "imdb",
+  loadChildren: () => import('../components/data-elements/Imdb/imdb.module').then(m => m.ImdbModule) },
+  { path: "favorites",canActivate: [LoginGuardService],
+  loadChildren: () => import('../components/data-elements/favorites/favorites.module').then(m => m.FavoritesModule) },
+  { path: "movieDetails/:id", canActivate: [LoginGuardService],
+  loadChildren: () => import('../components/data-elements/movie-details/movie-details.module').then(m => m.MovieDetailsModule) },
   { path: '', redirectTo: "imdb", pathMatch: "full" },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [CommonModule, RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
