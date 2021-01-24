@@ -1,6 +1,9 @@
 export const environment = {
   production: true,
-  core:true
+  hasTranslations:false,
+  translationLanguage: "English",
+  core:true,
+  getMovieByTitle: ''
 };
 
 export const baseUrl="http://localhost:49270/";

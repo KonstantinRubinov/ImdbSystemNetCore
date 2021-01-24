@@ -10,7 +10,7 @@
 		// _logicType = 1 -> sql
 		// _logicType = 2 -> mySql
 		// _logicType = 3 -> mongoDb
-		private static int _logicType = 1;
+		private static int _logicType = 2;
 
 		public static int queryType
 		{

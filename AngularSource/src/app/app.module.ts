@@ -16,6 +16,9 @@ import { SignInComponent } from './components/user-elements/sign-in/sign-in.comp
 import { MainModule } from './modules/main.module';
 import { AppRoutingModule } from './modules/app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,11 @@ import { BrowserModule } from '@angular/platform-browser';
     HttpClientModule,
     ImageCropperModule,
     AppRoutingModule,
-    MainModule
+    MainModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule,
+    CommonModule
   ],
   providers: [CookieService ],
   bootstrap: [LayoutComponent]
